@@ -40,7 +40,6 @@ class Cache(object):
         self.fingerprints = dict()
 
     def bins_(self, fingerprint):
-        random.shuffle(fingerprint)
         yield from enumerate(np.array_split(fingerprint, self.num_bands))
 
     def clear(self):
