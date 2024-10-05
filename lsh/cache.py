@@ -2,6 +2,7 @@
 from __future__ import division
 
 import json
+import random
 from collections import defaultdict
 import itertools
 import logging
@@ -39,6 +40,7 @@ class Cache(object):
         self.fingerprints = dict()
 
     def bins_(self, fingerprint):
+        random.shuffle(fingerprint)
         yield from enumerate(np.array_split(fingerprint, self.num_bands))
 
     def clear(self):
